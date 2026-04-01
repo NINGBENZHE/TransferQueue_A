@@ -202,7 +202,7 @@ class StreamingDataset(IterableDataset):
                 if self.batch_index <= len(self.buffer) - 1:
                     current_data = self.buffer[self.batch_index]
                     self.batch_index += 1
-                    logger.info(f"StreamDataloader current batch index is {self.batch_index}/{len(self.buffer)}")
+                    logger.debug(f"StreamDataloader current batch index is {self.batch_index}/{len(self.buffer)}")
                     yield from self.process_batch_fn(*current_data, micro_batch_size=self.micro_batch_size)
 
                 else:
